@@ -8,7 +8,7 @@ export default function LanguageContainer() {
     const state = useSelector(state => state.language);
 
     return (
-        <div className={s.container}>
+        <div className={['wrappers', s.container].join(' ')}>
             {state.map(el => <LanguageCard key={el.id} {...el} />)}
         </div>
     )
