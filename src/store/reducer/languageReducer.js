@@ -2,9 +2,11 @@ const defaultState = [];
 
 const ADD_CARD = 'ADD_CARD';
 const CHANGE_CARD = 'CHANGE_CARD';
+const DELETE_CARD = 'DELETE_CARD';
 
 export const addCard = (payload) => ({ type: ADD_CARD, payload });
 export const changeCard = (payload) => ({ type: CHANGE_CARD, payload });
+export const deleteCard = (payload) => ({ type: DELETE_CARD, payload });
 
 export const languageReducer = (state = defaultState, action) => {
     if (action.type === ADD_CARD) {
@@ -20,8 +22,9 @@ export const languageReducer = (state = defaultState, action) => {
             }
             return el
         }) 
-    }
-    else {
+    } else if (action.type === DELETE_CARD) {
+        return state.filter(el => el.id !== action.payload)
+    } else {
         return state
     }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './index.module.sass';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeCard } from '../../store/reducer/languageReducer';
+import { changeCard, deleteCard } from '../../store/reducer/languageReducer';
 
 
 export default function LanguageCard({ id, rus, eng, type }) {
@@ -12,6 +12,7 @@ export default function LanguageCard({ id, rus, eng, type }) {
     return (
         <div className={s.card}
             onClick={() => dispatch(changeCard(id))}
+            onDoubleClick={() => dispatch(deleteCard(id))}
             style=
             {
             type === 'ru'
