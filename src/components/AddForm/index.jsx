@@ -1,12 +1,16 @@
 import React from 'react';
 import s from './index.module.sass';
+import { useDispatch } from 'react-redux';
+import { addCard } from '../../store/reducer/languageReducer';
 
 export default function AddForm() {
 
+    const dispatch = useDispatch();
+    
     const submit = event => {
         event.preventDefault();
         const { ru, en } = event.target;
-        console.log(ru.value, en.value);
+        dispatch(addCard({rus: ru.value, eng: en.value}));
         ru.value = '';
         en.value = '';
     }

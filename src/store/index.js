@@ -1,7 +1,8 @@
-import { combineReducer, createStore } from 'react-redux';
+import { combineReducers, createStore } from 'redux';
+import { languageReducer } from './reducer/languageReducer';
 
-const rootReducer = combineReducer({
-
+const rootReducer = combineReducers({
+    language: languageReducer
 })
 
 export const store = createStore(rootReducer);
