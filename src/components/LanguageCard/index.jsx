@@ -1,13 +1,26 @@
 import React from 'react';
-import s from './index.module.sass'
+import s from './index.module.sass';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeCard } from '../../store/reducer/languageReducer';
 
-export default function LanguageCard({ rus, eng, type }) {
+
+export default function LanguageCard({ id, rus, eng, type }) {
+
+    const dispatch = useDispatch();
+    const state = useSelector(state => state.language);
     
     return (
-        <div className={s.card}>
+        <div className={s.card}
+            onClick={() => dispatch(changeCard(id))}
+            style=
+            {
+            type === 'ru'
+                ? {backgroundColor: 'white' }
+                : {backgroundColor: '#2980b9'}
+            }>
             { type === 'ru'
-                ? <p style={{backgroundColor: 'white', color: '#2980b9'}}>{rus}</p>
-                : <p style={{backgroundColor: '#2980b9', color: '#white'}}>{eng}</p>
+                ? <p style={{color: '#2980b9'}}>{rus}</p>
+                : <p style={{color: 'white'}}>{eng}</p>
             }
         </div>
     )
