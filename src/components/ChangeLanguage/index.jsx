@@ -10,8 +10,8 @@ export default function ChangeLanguage() {
 
     return (
         <div className={s.btn_container}>
-            <button onClick={changeEng}>eng</button>
-            <button onClick={changeRus}>rus</button>
+            <button type='button' onClick={changeEng}>eng</button>
+            <button type='button' onClick={changeRus}>rus</button>
         </div>
     )
 }
